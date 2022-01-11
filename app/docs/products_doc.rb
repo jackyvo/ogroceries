@@ -2,7 +2,7 @@ module ProductsDoc
   extend Apipie::DSL::Concern
   
   ###################################################################
-  api :GET, '/products', 'Get all productr and filter by categories, name or sku'
+  api :GET, '/products', 'Get all products and filter by categories, name or sku'
 
   param :q, String, desc: 'Filter by name or sku', required: false
   param :categories, Array, desc: 'Filter by category ids', required: false
