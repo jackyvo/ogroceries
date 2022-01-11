@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   apipie
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # API
+  namespace :api do
+    namespace :v1 do
+      post :register, to: 'registrations#create'
+      post :login, to: 'sessions#create'
+      
+      delete :logout, to: 'sessions#destroy'
+    end
+  end
 end
