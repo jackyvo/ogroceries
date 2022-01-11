@@ -7,6 +7,9 @@ module Api::V1
       user = User.find_by(email: user_email)
       
       if user.present? && user.valid_password?(user_password)
+        user.generate_authentication_token!
+        user.save
+        
         render json: user, serializer: UserAuthenticationSerializer
       else
         render_error('Invalid email or password')
